@@ -1,2 +1,4 @@
 car_venv
 .env
+notes.txt
+__pycache__

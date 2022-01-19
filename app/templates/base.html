@@ -11,6 +11,13 @@
 <title>Title</title>
 </head>
 <body>
+    {% include 'nav.html' %}
+
+    <main class="container">
+        {% block content %}
+
+        {% endblock content %}
+    </main>
 <h1>Welcome Friends!</h1>
 <h2>I hope all is well with you guys :)</h2>
 <p>No haters allowed!</p>

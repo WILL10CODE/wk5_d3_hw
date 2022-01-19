@@ -3,17 +3,21 @@ from config import Config
 
 from .blog.routes import blog
 from .user.routes import user
+from .models import db
 
-from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate, migrate
+from flask_migrate import Migrate
 
 app=Flask(__name__)
-db = SQLAlchemy()
-migrate = Migrate(user, db)
 
-app.config.from_object(Config)
+
+
+
 
 app.register_blueprint(blog)
 app.register_blueprint(user)
+app.config.from_object(Config)
+db.init_app(app)
+migrate = Migrate(app, db)
 
-from app import routes
+from . import routes
+from . import models
