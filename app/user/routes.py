@@ -4,7 +4,7 @@ from flask_sqlalchemy import model
 from ..forms import LoginForm
 user = Blueprint('user', __name__, template_folder='user_templates')
 from ..models import User, db
-from flask_login import login_user,logout_user,login_required,current_user
+# from flask_login import login_user,logout_user,login_required,
 
 
 
@@ -16,7 +16,7 @@ def logME():
 
 @user.route('/info', methods=["GET","POST"])
 def seeME():
-    my_model = User('first_name','last_name', 'email', 'password')
+    my_model = User()
     if request.method == "POST":
         if my_model.validate():
 
